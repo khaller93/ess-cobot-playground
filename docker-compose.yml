@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  db:
+    image: khaller/graphdb-free:10.0.0
+    ports:
+      - 127.0.0.1:7280:7200
+    volumes:
+      - "./config:/repository.init/cobot:rw"
+      - "./data:/repository.init/cobot/toLoad:ro"
+      - "./ontology:/ontology:ro"
+      - "./db/data:/opt/graphdb/data:rw"
+      - "./db/logs:/opt/graphdb/logs:rw"
+      - "./db/work:/opt/graphdb/work:rw"

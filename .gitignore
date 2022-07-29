@@ -1,0 +1,4 @@
+db/**
+*.lock
+config/toLoad
+config/esw/bin
