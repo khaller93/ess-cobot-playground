@@ -43,8 +43,8 @@ the following command.
 $ docker-compose -f docker-compose.esm.yml up
 ```
 
-The GraphDB instance can now be found at [http://localhost:7280](http://localhost:7277)
-and the microservice can be found at [http://localhost:8082](http://localhost:8081).
+The GraphDB instance can now be found at [http://localhost:7280](http://localhost:7280)
+and the microservice can be found at [http://localhost:8080](http://localhost:8080).
 
 ## Running GraphDB with complete ESS
 
@@ -54,7 +54,7 @@ This repository also includes a docker-compose file to start the complete explor
 $ docker-compose -f docker-compose.full.yml up
 ```
 
-Then, the web application is available at [http://localhost:9002](http://localhost:9001).
+Then, the web application is available at [http://localhost:9080](http://localhost:9080).
 
 # Contact
 

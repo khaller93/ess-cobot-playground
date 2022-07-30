@@ -17,7 +17,7 @@ services:
     environment:
       - SPRING_CONFIG_LOCATION=file:///conf/application.properties
     ports:
-      - 8082:8080
+      - 8080:8080
     volumes:
       - ./config/esm.properties:/conf/application.properties
       - esm-vol:/data
@@ -31,7 +31,7 @@ services:
     environment:
       - SPRING_CONFIG_LOCATION=file:///conf/application.properties
     ports:
-      - 9002:9000
+      - 9080:9000
     volumes:
       - ./config/esw.properties:/conf/application.properties
       - ./config/esw/bin:/webapp/configuration
