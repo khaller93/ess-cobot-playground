@@ -22,7 +22,7 @@ services:
       - ./config/esm.properties:/conf/application.properties
       - esm-vol:/data
   esw_compiler:
-    image: khaller/esw-hcl-compiler:1.0.0
+    image: semsysess/esw-hcl-compiler:1.0.1
     command: ["/configuration", "/configuration/bin"]
     volumes:
       - ./config/esw:/configuration
