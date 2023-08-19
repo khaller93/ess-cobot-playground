@@ -1,61 +1,93 @@
-# Cobot KG - GraphDB instance
+# COBOT Use Case - ESS Prototype
 
-This repository offers a `docker-compose` file, which provides a running GraphDB instance with the Cobot demo loaded. Hence, an up-to-date version of Docker is required (or any other equivalent container engine). The `khaller/graphdb-free` container image is used. The documentation of this image can be found [here](https://github.com/khaller93/graphdb-free).
+The COBOT use case is concerned with the challenge of low utilization and 
+limited awareness of manufacturing technology in the Aspern pilot factory, which
+is an Austrian learning and experimentation facility. The factory provides
+access to a range of industrial machines, including collaborative robots. 
+However, the detailed capabilities of these robots are unknown to potential
+users due to factors such as limited public availability, contextual dependence,
+and continuous evolution. 
 
-## Running GraphDB
+To tackle this issue, we proposed an exploratory search system that allows
+students, researchers, and companies to explore and learn about the available
+equipment.
 
-Starting the GraphDB instance is as easy as running the following command.
+Components of the knowledge graph:
 
-```bash
-$ docker-compose up
-```
+* COBOT ontology
+* COBOT data from stakeholder interviews and scraping of public data sources
+* STAR1 ontology about software architectural knowledge
+* STAR1 data from the central knowledge management system of a software
+engineering company
 
-The GraphDB instance can now be found at [http://localhost:7280](http://localhost:7280).
+Source code of the prototype:
 
-After a successful start of the container image, the data of the GraphDB instance is stored in the `db` folder. On Linux systems with SELinux enabled, the run of the container might fail, due to missing permission to read/write to this directory on the host filesystem. Then you can add a proper SELinux label to this directory with '`chcon -Rt svirt_sandbox_file_t ./db`', or disable SELinux with '`setenforce 0`'.
+* Middleware: [khaller93/es-middleware](https://github.com/khaller93/es-middleware)
+* Web application: [khaller93/es-web-app](https://github.com/khaller93/es-web-app)
 
-```
-db
-├── data
-├── logs
-├── README.md
-└── work
-```
-
-Moreover, `.lock` files might be added to the `config` folder. These `.lock` files indicate that the initialization of the `pokemon` repository has been performed successfully. If you want to re-initialize the repository for some reason, you can delete these `.lock` files manually and restart the container. Alternatively, you can use the provided `clean-locks.sh` to delete these `.lock` files.
-
-```
-config
-├── config.ttl
-├── init.lock
-├── sparql
-├── sparql.lock
-└── toLoad
-```
-
-## Running GraphDB with Exploratory Search Microservice
-
-This repository also includes a docker-compose file to start the exploratory 
-search microservice together with the GraphDB instance. It can be started with
-the following command.
+## Playground
+To clone the repository and its submodules, use the following command:
 
 ```bash
-$ docker-compose -f docker-compose.esm.yml up
+git clone --recursive https://github.com/khaller93/cobot-playground
 ```
-
-The GraphDB instance can now be found at [http://localhost:7280](http://localhost:7280)
-and the microservice can be found at [http://localhost:8080](http://localhost:8080).
-
-## Running GraphDB with complete ESS
-
-This repository also includes a docker-compose file to start the complete exploratory search system with the GraphDB instance as storage solution. It can be started with the following command.
+If you've already cloned the repository and want to load its submodules, use the
+following commands:
 
 ```bash
-$ docker-compose -f docker-compose.full.yml up
+git submodule init
+git submodule update
+```
+
+## Running ESS prototype
+
+```bash
+docker-compose up
 ```
 
 Then, the web application is available at [http://localhost:9080](http://localhost:9080).
 
+## Running triplestore independently
+
+```bash
+docker-compose -f docker-compose.db.yml up
+```
+
+Then, the triplestore is available at [http://localhost:7280](http://localhost:7280).
+
+## Citation
+
+If you make use of this work, please cite one of the following.
+
+```bibtex
+@masterthesis{haller23,
+  title={Semantics-Based Exploratory Search on Manufacturing Knowledge},
+  author={Kevin Haller},
+  year={2023},
+  school={TU Wien}
+}
+```
+or
+```bibtex
+@inproceedings{Haller2022,
+  author    = {Kevin Haller and
+               Fajar J. Ekaputra and
+               Marta Sabou and
+               Florina Piroi},
+  title     = {Enabling Exploratory Search on Manufacturing Knowledge Graphs},
+  booktitle = {Proceedings of the Seventh International Workshop on the Visualization
+               and Interaction for Ontologies and Linked Data co-located with the
+               21st International Semantic Web Conference {(ISWC} 2022), Virtual
+               Event, Hangzhou, China, October 23, 2022},
+  series    = {{CEUR} Workshop Proceedings},
+  volume    = {3253},
+  pages     = {16--28},
+  publisher = {CEUR-WS.org},
+  year      = {2022},
+  url       = {http://ceur-ws.org/Vol-3253/paper2.pdf},
+}
+```
+
 # Contact
 
-* Kevin Haller - [contact@kevinhaller.dev](mailto:contact@kevinhaller.dev) or [kevin.haller@tuwien.ac.at](mailto:kevin.haller@tuwien.ac.at)
+* Kevin Haller - [contact@kevinhaller.dev](mailto:contact@kevinhaller.dev)
