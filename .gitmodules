@@ -1,0 +1,3 @@
+[submodule "cobot-ontology"]
+	path = cobot-ontology
+	url = https://github.com/khaller93/cobot-ontology
