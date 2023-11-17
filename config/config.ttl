@@ -2,7 +2,7 @@
 @prefix rep: <http://www.openrdf.org/config/repository#>.
 @prefix sr: <http://www.openrdf.org/config/repository/sail#>.
 @prefix sail: <http://www.openrdf.org/config/sail#>.
-@prefix owlim: <http://www.ontotext.com/trree/owlim#>.
+@prefix graphdb: <http://www.ontotext.com/config/graphdb#>.
 
 [] a rep:Repository ;
     rep:repositoryID "cobot" ;
@@ -11,12 +11,10 @@
         rep:repositoryType "graphdb:SailRepository";
         sr:sailImpl [
             sail:sailType "graphdb:Sail" ;
-            owlim:entity-index-size "1000000" ;
+            graphdb:entity-index-size "1000000" ;
 
-            owlim:ruleset "owl2-rl-optimized" ;
-            owlim:defaultNS "http://data.ifs.tuwien.ac.at/star2/ontology#;http://purl.org/co/;http://data.ifs.tuwien.ac.at/star/ontology#;" ;
-            owlim:imports "file:///ontology/star2.ttl;file:///ontology/co.rdf;file:///ontology/star-eswc.owl;" ;
-
+            graphdb:ruleset "owl2-rl-optimized" ;
+            graphdb:defaultNS "http://data.ifs.tuwien.ac.at/star2/ontology#;http://purl.org/co/;http://data.ifs.tuwien.ac.at/star/ontology#;" ;
+            graphdb:imports "file:///repository.init/cobot/ontology/star2.ttl;file:///repository.init/cobot/ontology/co.rdf;file:///repository.init/cobot/ontology/star-eswc.owl;" ;
         ]
-
     ].

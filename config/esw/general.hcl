@@ -30,7 +30,7 @@ short_title = "Cobot"
   configuration (e.g. see the categories example in this file).
 */
 supported_languages = [
-  "en"]
+  "de", "en"]
 
 /*
    ENABLE FEATURES

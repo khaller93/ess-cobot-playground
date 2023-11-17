@@ -57,17 +57,8 @@ Then, the triplestore is available at [http://localhost:7280](http://localhost:7
 
 ## Citation
 
-If you make use of this work, please cite one of the following.
+If you make use of this work, please cite the following.
 
-```bibtex
-@masterthesis{haller23,
-  title={Semantics-Based Exploratory Search on Manufacturing Knowledge},
-  author={Kevin Haller},
-  year={2023},
-  school={TU Wien}
-}
-```
-or
 ```bibtex
 @inproceedings{Haller2022,
   author    = {Kevin Haller and

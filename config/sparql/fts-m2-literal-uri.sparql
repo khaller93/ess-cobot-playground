@@ -1,8 +1,0 @@
-PREFIX luc: <http://www.ontotext.com/owlim/lucene#>
-
-INSERT DATA {
-	luc:index luc:setParam "uris" .
-	luc:include luc:setParam "literal uri" .
-	luc:moleculeSize luc:setParam "2" .
-	luc:esm luc:createIndex "true".
-}

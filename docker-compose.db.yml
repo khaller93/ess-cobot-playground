@@ -26,32 +26,7 @@ services:
       - "db-vol:/opt/graphdb/data:rw"
       - "db-vol:/opt/graphdb/logs:rw"
       - "db-vol:/opt/graphdb/work:rw"
-  esm:
-    image: semsysess/esm:1.3.0
-    environment:
-      - SPRING_CONFIG_LOCATION=file:///conf/application.properties
-    ports:
-      - 127.0.0.1:8080:8080
-    volumes:
-      - ./config/esm.properties:/conf/application.properties
-      - esm-vol:/data
-  esw_compiler:
-    image: semsysess/esw-hcl-compiler:1.0.1
-    command: ["/configuration", "/configuration/bin"]
-    volumes:
-      - ./config/esw:/configuration
-  esw:
-    image: local/esw
-    environment:
-      - SPRING_CONFIG_LOCATION=file:///conf/application.properties
-    ports:
-      - 127.0.0.1:9080:9000
-    volumes:
-      - ./config/esw.properties:/conf/application.properties
-      - ./config/esw/bin:/webapp/configuration
 
 volumes:
-  esm-vol: {}
   data-vol: {}
   db-vol: {}
-
